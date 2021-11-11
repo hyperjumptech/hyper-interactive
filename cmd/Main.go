@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
+	selected := hyper_interactive.Select("What to do ?", []string{"Manage probes", "Configure Central", "Configure Minion", "Save and Finish"}, 1, 3, false)
+	fmt.Println(selected)
 	name := hyper_interactive.Ask("Whats your name ?", "Bruce Wayne", true)
 	options := []string{
 		"One",

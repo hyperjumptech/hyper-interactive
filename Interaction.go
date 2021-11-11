@@ -57,7 +57,7 @@ func Select(question string, options []string, startFrom, defaultOption int, con
 	for {
 		fmt.Printf("%s:\n", question)
 		printSelect(options, startFrom)
-		fmt.Printf("Choose from number above [default : (%d) %s] ? ", defaultOption, options[startFrom-defaultOption])
+		fmt.Printf("Choose from number above [default : (%d) %s] ? ", defaultOption, options[defaultOption-startFrom])
 		scanner.Scan()
 		text := scanner.Text()
 		if len(text) == 0 {
