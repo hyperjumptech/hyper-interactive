@@ -85,9 +85,9 @@ $ interact
 Please choose :
 (1) One    (3) Three  (5) Five   (7) Seven  (9) Nine                         
 (2) Two    (4) Four   (6) Six    (8) Eight  (10) Ten                         
-Choose from number above [default : (1) One] ? 7
+Choose from number above [default : (1) One] ? 5
 (5) Five - Are you sure ?  (y/n/Y/N) [default : Y] ? Y
-You choose number 7
+You choose number 5
 ```
 
 ## Supported Questions
