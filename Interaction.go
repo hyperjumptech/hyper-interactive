@@ -129,7 +129,6 @@ func AskNumber(question string, from, to, def int, confirm bool) int {
 func AskTime(question string, def time.Time, confirm bool) time.Time {
 	format := "2006-01-02 15:04:05 -0700"
 	scanner := bufio.NewScanner(os.Stdin)
-
 	for {
 		fmt.Printf("%s [default \"%s\"] : ", question, def.Format(format))
 		scanner.Scan()
@@ -147,7 +146,7 @@ func AskTime(question string, def time.Time, confirm bool) time.Time {
 		}
 		theTime, err := time.Parse(format, text)
 		if err != nil {
-			fmt.Printf("\"%s\" is not a valid time format\n")
+			fmt.Printf("\"%s\" is not a valid time format\n", text)
 			continue
 		}
 		if Confirm(fmt.Sprintf("\"%s\", are you sure?", text), true) {
@@ -176,10 +175,14 @@ func Ask(question, defaultAnswer string, confirm bool) string {
 				return defaultAnswer
 			}
 		}
-		if Confirm(fmt.Sprintf("\"%s\", are you sure?", text), true) {
-			return text
+		if confirm {
+			if Confirm(fmt.Sprintf("\"%s\", are you sure?", text), true) {
+				return text
+			} else {
+				continue
+			}
 		} else {
-			continue
+			return text
 		}
 	}
 }
